@@ -6,6 +6,9 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Home from './panels/Home';
 import Persik from './panels/Persik';
 
+//npm start - запуск на локалке
+//npm run deploy - запуск на хостинг
+
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
