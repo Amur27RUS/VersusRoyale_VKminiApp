@@ -12,7 +12,6 @@ import ImageForTest from "../ImageForTest";
 
 const osName = platform();
 
-
 const TestPanel = props => (
     <Panel id={props.id}>
         <PanelHeader
@@ -22,9 +21,8 @@ const TestPanel = props => (
         >
             Тест
         </PanelHeader>
-        <ImageForTest />
-        <ImageForTest />
 
+        <ImageForTest />
 
     </Panel>
 );
