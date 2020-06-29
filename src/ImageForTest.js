@@ -33,7 +33,6 @@ class ImageForTest extends React.Component {
         css1: 'TestImage',
         css2: 'TestImage',
         text: null,
-
     }
 
     changeImg1 = () => {
