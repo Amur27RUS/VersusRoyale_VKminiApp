@@ -14,6 +14,13 @@ const App = () => {
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(null);
 
+	const cards =[
+		{ id: 1, className: 'TestUNLOCKED', title: 'Лучший пубгер'},
+		{ id: 2, className: 'TestUNLOCKED', title: 'Игра века'},
+		{ id: 3, className: 'TestUNLOCKED', title: 'Лучший стример'},
+		{ id: 4, className: 'TestUNLOCKED', title: 'Фильм всех времен'},
+	]
+
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
 			if (type === 'VKWebAppUpdateConfig') {
@@ -36,8 +43,8 @@ const App = () => {
 
 	return (
 		<View activePanel={activePanel} popout={popout}>
-			<Home id='home' fetchedUser={fetchedUser} go={go} />
-			<TestPanel id='persik' go={go} />
+			<Home id='home' fetchedUser={fetchedUser} go={go} cardsInfo={cards}/>
+			<TestPanel id='TestPanel' go={go} />
 		</View>
 	);
 }
