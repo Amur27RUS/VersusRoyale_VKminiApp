@@ -3,9 +3,31 @@ import persik from './img/persik.png';
 import spotty from './img/spotty.png';
 import luna from './img/luna.png';
 import puppy from './img/puppy.png';
+import doctor from './img/doctor.png';
+import catFish from './img/catFish.png';
+import hardKot from './img/hardKot.png';
+import horse from './img/horse.png';
+import iLame from './img/iLameRu.png';
+import kurica from './img/kurica.png';
+import spider from './img/spider.png';
+import vanya from './img/vanya.png';
+
+class image{
+    constructor(image, usage) {
+        this.image = image;
+        this.usage = usage;
+    }
+}
+
+
 
 //Массив с картинками
-let imageArr = [persik, spotty, luna, puppy];
+let imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
+let usageArr = [imageArr.length];
+for(let i = 0; i < imageArr.length; i++){
+    usageArr[i] = 0;
+}
+
 let counter = 1;
 let undefinedElements;
 
@@ -111,7 +133,6 @@ class ImageForTest extends React.Component {
 
 
     render() {
-
         return(
             <div>
                 <div className={"sign"}>
