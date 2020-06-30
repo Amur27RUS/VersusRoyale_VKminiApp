@@ -12,14 +12,6 @@ import kurica from './img/kurica.png';
 import spider from './img/spider.png';
 import vanya from './img/vanya.png';
 
-class image{
-    constructor(image, usage) {
-        this.image = image;
-        this.usage = usage;
-    }
-}
-
-
 
 //Массив с картинками
 let imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
