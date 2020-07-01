@@ -1,6 +1,12 @@
 .titleCards {
     text-align: center;
-    font-size: 25px;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 45px;
+
+}
+.cards {
+    background: #141414;
 }
 
 .TestImage {

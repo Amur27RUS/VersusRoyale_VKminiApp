@@ -113,7 +113,7 @@ class ImageForTest extends React.Component {
             })
         }else{
             this.setState({
-                image1: imageArr[0],
+                image2: imageArr[0],
                 css1:  'looser',
                 css2: 'winner',
                 text: 'Победитель!',

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
-import Button from '@vkontakte/vkui/dist/components/Button/Button';
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
@@ -25,12 +24,14 @@ const Home = ({ id, go, fetchedUser, cardsInfo}) => (
 		<Group title="Navigation">
 			<CardGrid>
 				{cardsInfo.map(info =>{
-					 return <Card size="l" mode="shadow"><div style={{ height: 15 }} />
+					 return <Card className={"cards"} size="l" mode="shadow" onClick={go} data-to="TestPanel">
+						 <div style={{ height: 15 }} />
 					 <p className={"titleCards"}>{info.title}</p>
 					 </Card>
 				})}
 			</CardGrid>
 		</Group>
+		<testCards />
 	</Panel>
 );
 
