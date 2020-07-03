@@ -8,10 +8,11 @@ import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 import {Card, CardGrid} from "@vkontakte/vkui";
 import TestPanel from "./TestPanel";
+import TestCards from "../TestCards";
 
-const Home = ({ id, go, fetchedUser, cardsInfo}) => (
+const Home = ({ id, go, fetchedUser}) => (
 	<Panel id={id}>
-		<PanelHeader>Versus ROYALE</PanelHeader>
+		<PanelHeader  className={"panel"}> Versus ROYALE </PanelHeader>
 		{fetchedUser &&
 		<Group title="User Data Fetched with VK Bridge">
 			<Cell
@@ -21,19 +22,12 @@ const Home = ({ id, go, fetchedUser, cardsInfo}) => (
 				{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
 			</Cell>
 		</Group>}
-		<Group title="Navigation">
-			<CardGrid>
-				{cardsInfo.map(info =>{
-					 return <Card className={"cards"} size="l" mode="shadow" onClick={go} data-to="TestPanel">
-						 <div style={{ height: 15 }} />
-					 <p className={"titleCards"}>{info.title}</p>
-					 </Card>
-				})}
-			</CardGrid>
-		</Group>
-		<testCards />
+
+		<TestCards go={go}/>
+
 	</Panel>
 );
+
 
 Home.propTypes = {
 	id: PropTypes.string.isRequired,

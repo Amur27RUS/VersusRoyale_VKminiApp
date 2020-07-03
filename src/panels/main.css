@@ -1,12 +1,24 @@
 .titleCards {
     text-align: center;
     font-size: 30px;
-    color: white;
+    color: black;
     margin-bottom: 45px;
-
+    font-weight: bold;
 }
+
+
 .cards {
-    background: #141414;
+    background: #e1e3e6;
+    margin-bottom: 20px;
+}
+
+.cardGrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 93vh;
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+    overflow: hidden;
 }
 
 .TestImage {

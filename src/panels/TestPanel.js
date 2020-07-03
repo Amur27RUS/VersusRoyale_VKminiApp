@@ -22,7 +22,7 @@ const TestPanel = props => (
             Тест
         </PanelHeader>
 
-        <ImageForTest name={props.id}/>
+        <ImageForTest />
 
     </Panel>
 );
