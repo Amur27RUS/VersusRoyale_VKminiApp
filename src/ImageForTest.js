@@ -101,10 +101,6 @@ class ImageForTest extends React.Component {
             imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
             num1 = getRandomInt(0, imageArr.length-1);
             num2 = getRandomInt(0, imageArr.length-1);
-            this.setState({
-                image1: imageArr[num1],
-                image2: imageArr[num2],
-            })
 
         }
     }
@@ -152,11 +148,6 @@ class ImageForTest extends React.Component {
             imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
             num1 = getRandomInt(0, imageArr.length-1);
             num2 = getRandomInt(0, imageArr.length-1);
-            this.setState({
-                image1: imageArr[num1],
-                image2: imageArr[num2],
-            })
-
         }
     }
 
