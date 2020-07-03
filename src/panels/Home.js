@@ -4,10 +4,7 @@ import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
-import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
-import {Card, CardGrid} from "@vkontakte/vkui";
-import TestPanel from "./TestPanel";
 import TestCards from "../TestCards";
 
 const Home = ({ id, go, fetchedUser}) => (

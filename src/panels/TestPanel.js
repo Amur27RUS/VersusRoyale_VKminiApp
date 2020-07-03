@@ -22,7 +22,7 @@ const TestPanel = props => (
             Тест
         </PanelHeader>
 
-        <ImageForTest />
+        <ImageForTest curTest ={global.tests.currentTest}/>
 
     </Panel>
 );

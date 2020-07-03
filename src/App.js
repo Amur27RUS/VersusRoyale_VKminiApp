@@ -9,6 +9,11 @@ import TestPanel from './panels/TestPanel';
 //npm start - запуск на локалке
 //npm run deploy - запуск на хостинг
 
+global.tests = {
+	currentTest: '111',
+	winner: null,
+}
+
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);

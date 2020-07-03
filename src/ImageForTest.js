@@ -13,21 +13,21 @@ import spider from './img/spider.png';
 import vanya from './img/vanya.png';
 
 
-//Массив с картинками
+// Массив с картинками
 let imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
 let usageArr = [imageArr.length];
 for(let i = 0; i < imageArr.length; i++){
     usageArr[i] = 0;
 }
-
 let counter = 1;
 let undefinedElements;
 
-//рандомные номера картинок из массива
+
+// рандомные номера картинок из массива
 let num1 = getRandomInt(0, imageArr.length-1);
 let num2 = getRandomInt(0, imageArr.length-1);
 
-//Нужно, чтобы картинки были разными
+// Нужно, чтобы картинки были разными
 while(num1 === num2){
     num2 = getRandomInt(0, imageArr.length-1);
 }
@@ -38,8 +38,16 @@ function getRandomInt(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
 }
+console.log('UPPER CLASS STARTED');
 
 class ImageForTest extends React.Component {
+
+    constructor(props) {
+        super(props);
+        console.log('CONSTRUCTOR STARTED');
+        console.log(num1);
+        console.log(num2);
+    }
 
     state = {
         image1: imageArr[num1],
@@ -49,7 +57,9 @@ class ImageForTest extends React.Component {
         text: null,
     }
 
+
     changeImg1 = () => {
+        console.log('changeIMG1');
         undefinedElements = 0;
 
         if (undefinedElements < imageArr.length-1) {
@@ -63,6 +73,10 @@ class ImageForTest extends React.Component {
         }
 
         imageArr.sort();
+        console.log('ARRAY:')
+        for(let i = 0; i<imageArr.length; i++){
+            console.log(imageArr[i])
+        }
         counter++;
         if(undefinedElements < imageArr.length-1){
             num1 = getRandomInt(0, imageArr.length-counter);
@@ -83,10 +97,20 @@ class ImageForTest extends React.Component {
             })
             document.getElementById('image2').onclick = null;
             document.getElementById('image1').onclick = null;
+            counter = 1;
+            imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
+            num1 = getRandomInt(0, imageArr.length-1);
+            num2 = getRandomInt(0, imageArr.length-1);
+            this.setState({
+                image1: imageArr[num1],
+                image2: imageArr[num2],
+            })
+
         }
     }
 
     changeImg2 = () => {
+        console.log('changeIMG2');
         undefinedElements = 0;
 
         if (undefinedElements < imageArr.length-1) {
@@ -100,6 +124,10 @@ class ImageForTest extends React.Component {
         }
 
         imageArr.sort();
+        console.log('ARRAY:')
+        for(let i = 0; i<imageArr.length; i++){
+            console.log(imageArr[i])
+        }
         counter++;
         if(undefinedElements < imageArr.length-1){
             num1 = getRandomInt(0, imageArr.length-counter);
@@ -120,12 +148,22 @@ class ImageForTest extends React.Component {
             })
             document.getElementById('image2').onclick = null;
             document.getElementById('image1').onclick = null;
+            counter = 1;
+            imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
+            num1 = getRandomInt(0, imageArr.length-1);
+            num2 = getRandomInt(0, imageArr.length-1);
+            this.setState({
+                image1: imageArr[num1],
+                image2: imageArr[num2],
+            })
+
         }
     }
 
-
     render() {
+        console.log('RENDER STARTED');
         return(
+
             <div>
                 <div className={"sign"}>
                     <span className="sign__word">{this.state.text}</span>
@@ -138,10 +176,10 @@ class ImageForTest extends React.Component {
             <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2}/>
                 </div>
             </div>
-
-
         )
     }
 
+
 }
 export default ImageForTest;
+
