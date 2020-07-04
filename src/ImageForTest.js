@@ -14,14 +14,19 @@ import vanya from './img/vanya.png';
 
 
 // Массив с картинками
-let imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
+let imageArr1 = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
+let imageArr2 = [persik, spotty]
+let imageArr3 = [spotty, spotty]
+let imageArr4 = [persik, persik]
+let images = [imageArr1, imageArr2, imageArr3, imageArr4];
+let imageArr = [persik, persik];
+
 let usageArr = [imageArr.length];
 for(let i = 0; i < imageArr.length; i++){
     usageArr[i] = 0;
 }
 let counter = 1;
 let undefinedElements;
-let testNumber = 0;
 
 // рандомные номера картинок из массива
 let num1 = getRandomInt(0, imageArr.length-1);
@@ -38,17 +43,22 @@ function getRandomInt(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
 }
+
 console.log('UPPER CLASS STARTED');
 
 class ImageForTest extends React.Component {
 
     constructor(props) {
-
+        imageArr = images[global.tests.currentTest - 1];
+        num1 = getRandomInt(0, imageArr.length-1);
+        num2 = getRandomInt(0, imageArr.length-1);
+        while(num1 === num2){
+            num2 = getRandomInt(0, imageArr.length-1);
+        }
         super(props);
         console.log('CONSTRUCTOR STARTED');
         console.log(num1);
         console.log(num2);
-        alert(global.tests.currentTest)
     }
 
     state = {
@@ -97,14 +107,13 @@ class ImageForTest extends React.Component {
                 css1: 'winner',
                 text: 'Победитель!'
             })
-            document.getElementById('image2').onclick = null;
-            document.getElementById('image1').onclick = null;
             counter = 1;
-            imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
+            imageArr = images[global.tests.currentTest - 1];
+            console.log(images[global.tests.currentTest - 1])
             num1 = getRandomInt(0, imageArr.length-1);
             num2 = getRandomInt(0, imageArr.length-1);
             while (num1 === num2) {
-                num2 = getRandomInt(0, imageArr.length-1);
+                 num2 = getRandomInt(0, imageArr.length-1);
             }
         }
     }
@@ -146,22 +155,19 @@ class ImageForTest extends React.Component {
                 css2: 'winner',
                 text: 'Победитель!',
             })
-            document.getElementById('image2').onclick = null;
-            document.getElementById('image1').onclick = null;
             counter = 1;
-            imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
+            imageArr = images[global.tests.currentTest - 1];
+            console.log(images[global.tests.currentTest - 1])
             num1 = getRandomInt(0, imageArr.length-1);
             num2 = getRandomInt(0, imageArr.length-1);
             while (num1 === num2) {
-                num2 = getRandomInt(0, imageArr.length-1);
+                 num2 = getRandomInt(0, imageArr.length-1);
             }
         }
     }
 
     render() {
-        console.log('RENDER STARTED');
         return(
-
             <div>
                 <div className={"sign"}>
                     <span className="sign__word">{this.state.text}</span>

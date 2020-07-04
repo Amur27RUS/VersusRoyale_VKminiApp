@@ -13,9 +13,6 @@ const cards =[
 ]
 
 export default function TestCards({go}) {
-    function test1() {
-        global.tests.currentTest = 'test1';
-    }
     return(
         <Group title="Navigation" className={"cardGrid"}>
             <CardGrid>
