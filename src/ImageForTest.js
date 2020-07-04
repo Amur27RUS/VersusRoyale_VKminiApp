@@ -21,7 +21,7 @@ for(let i = 0; i < imageArr.length; i++){
 }
 let counter = 1;
 let undefinedElements;
-
+let testNumber = 0;
 
 // рандомные номера картинок из массива
 let num1 = getRandomInt(0, imageArr.length-1);
@@ -43,10 +43,12 @@ console.log('UPPER CLASS STARTED');
 class ImageForTest extends React.Component {
 
     constructor(props) {
+
         super(props);
         console.log('CONSTRUCTOR STARTED');
         console.log(num1);
         console.log(num2);
+        alert(global.tests.currentTest)
     }
 
     state = {
@@ -101,7 +103,9 @@ class ImageForTest extends React.Component {
             imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
             num1 = getRandomInt(0, imageArr.length-1);
             num2 = getRandomInt(0, imageArr.length-1);
-
+            while (num1 === num2) {
+                num2 = getRandomInt(0, imageArr.length-1);
+            }
         }
     }
 
@@ -148,6 +152,9 @@ class ImageForTest extends React.Component {
             imageArr = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
             num1 = getRandomInt(0, imageArr.length-1);
             num2 = getRandomInt(0, imageArr.length-1);
+            while (num1 === num2) {
+                num2 = getRandomInt(0, imageArr.length-1);
+            }
         }
     }
 

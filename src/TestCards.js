@@ -22,7 +22,7 @@ export default function TestCards({go}) {
                 {cards.map(info =>{
                     return <Card className={"cards"} size="l" mode="shadow" onClick={ (e) => {
                         go(e);
-                        test1();
+                        global.tests.currentTest = info.id;
                     }} data-to="TestPanel">
                         <div style={{ height: 15 }} />
                         <p className={"titleCards"}>{info.title}</p>
