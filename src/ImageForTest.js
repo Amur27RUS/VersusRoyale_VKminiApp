@@ -18,7 +18,7 @@ let imageArr1 = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, i
 let imageArr2 = [persik, spotty]
 let imageArr3 = [spotty, spotty]
 let imageArr4 = [persik, persik]
-let images = [imageArr1, imageArr2, imageArr3, imageArr4];
+let images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
 let imageArr = [persik, persik];
 
 let usageArr = [imageArr.length];
@@ -85,6 +85,7 @@ class ImageForTest extends React.Component {
         }
 
         imageArr.sort();
+        console.log(images[global.tests.currentTest - 1])
         console.log('ARRAY:')
         for(let i = 0; i<imageArr.length; i++){
             console.log(imageArr[i])
@@ -108,13 +109,7 @@ class ImageForTest extends React.Component {
                 text: 'Победитель!'
             })
             counter = 1;
-            imageArr = images[global.tests.currentTest - 1];
-            console.log(images[global.tests.currentTest - 1])
-            num1 = getRandomInt(0, imageArr.length-1);
-            num2 = getRandomInt(0, imageArr.length-1);
-            while (num1 === num2) {
-                 num2 = getRandomInt(0, imageArr.length-1);
-            }
+            images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         }
     }
 
@@ -133,6 +128,7 @@ class ImageForTest extends React.Component {
         }
 
         imageArr.sort();
+        console.log(images[global.tests.currentTest - 1])
         console.log('ARRAY:')
         for(let i = 0; i<imageArr.length; i++){
             console.log(imageArr[i])
@@ -156,13 +152,7 @@ class ImageForTest extends React.Component {
                 text: 'Победитель!',
             })
             counter = 1;
-            imageArr = images[global.tests.currentTest - 1];
-            console.log(images[global.tests.currentTest - 1])
-            num1 = getRandomInt(0, imageArr.length-1);
-            num2 = getRandomInt(0, imageArr.length-1);
-            while (num1 === num2) {
-                 num2 = getRandomInt(0, imageArr.length-1);
-            }
+            images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         }
     }
 
