@@ -60,6 +60,10 @@
     border-radius: 10px;
     pointer-events: none;
 }
+.textForImage{
+    text-align: center;
+}
+
 
 /*ЭФФЕКТЫ ДЛЯ ПОБЕДИТЕЛЯ*/
 html,

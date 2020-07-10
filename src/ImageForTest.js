@@ -27,12 +27,10 @@ let vanyaIMG = new TestImage(vanya, 'Ваня');
 
 
 
-
-
 // Массивы с картинками (Число картинок должно быть равно степени двойки)
 let imageArr1 = [persikIMG, spottyIMG, lunaIMG, puppyIMG, doctorIMG, catFishIMG, hardKotIMG, horseIMG];
-let imageArr2 = [persikIMG, spottyIMG]
-let imageArr3 = [spottyIMG, spottyIMG]
+let imageArr2 = [persikIMG, spottyIMG, iLameIMG, kuricaIMG]
+let imageArr3 = [spottyIMG, spiderIMG, iLameIMG, vanyaIMG]
 let imageArr4 = [persikIMG, persikIMG]
 
 //Массив со всеми массивами с картинками.
@@ -74,7 +72,6 @@ function TestImage(image, text){
         this.useNum = 0; //Сколько раз использовали
 }
 
-
 class ImageForTest extends React.Component {
 
     constructor(props) {
@@ -94,12 +91,16 @@ class ImageForTest extends React.Component {
     }
 
     state = {
-        image1: imageArr[num1].image,
-        image2: imageArr[num2].image,
-        css1: 'TestImage',
-        css2: 'TestImage',
-        text: null,
+        image1: imageArr[num1].image, //верхняя картинка
+        image2: imageArr[num2].image, //нижняя картинка
+        text1: imageArr[num1].text, //название верхней картинки
+        text2: imageArr[num2].text, //название нижней картинки
+        css1: 'TestImage', //класс верхней картинки
+        css2: 'TestImage', //Класс нижней картинки
+        textCss: 'textForImage', //класс названия картинок
+        text: null, //Текст победителя
     }
+
 
     changeImg1Remastered = () => {
         undefinedElements = 0;
@@ -133,12 +134,12 @@ class ImageForTest extends React.Component {
             while((imageArr[num2].useNum !== minUsage) || (num1 === num2)){
                 num2 = getRandomInt(0, imageArr.length-counter);
             }
-            console.log('NUMS для следующего:');
-            console.log(num1 + ' ' + num2);
 
             this.setState({
                 image1: imageArr[num1].image,
                 image2: imageArr[num2].image,
+                text1: imageArr[num1].text,
+                text2: imageArr[num2].text,
             });
 
         }else{
@@ -146,7 +147,8 @@ class ImageForTest extends React.Component {
                 image1: imageArr[num1].image,
                 css2:  'looser',
                 css1: 'winner',
-                text: 'Победитель!'
+                text: 'Победитель!',
+                textCss: 'looser',
             });
             counter = 1;
             images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
@@ -193,6 +195,8 @@ class ImageForTest extends React.Component {
             this.setState({
                 image1: imageArr[num1].image,
                 image2: imageArr[num2].image,
+                text1: imageArr[num1].text,
+                text2: imageArr[num2].text,
             });
 
         }else{
@@ -200,7 +204,8 @@ class ImageForTest extends React.Component {
                 image1: imageArr[num2].image,
                 css2:  'looser',
                 css1: 'winner',
-                text: 'Победитель!'
+                text: 'Победитель!',
+                textCss: 'looser',
             });
             counter = 1;
             images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
@@ -211,13 +216,15 @@ class ImageForTest extends React.Component {
         return(
             <div>
                 <div className={"sign"}>
-                    <span className="sign__word">{this.state.text}</span>
+                    <span className='sign__word'>{this.state.text}</span>
                 </div>
                 <div>
             <img id={'image1'} className={this.state.css1} src={this.state.image1} alt="Loading error" onClick={this.changeImg1Remastered}/>
+                    <p className={this.state.textCss}>{this.state.text1}</p>
                 </div>
                 <br/>
                 <div>
+                    <p className={this.state.textCss}>{this.state.text2}</p>
             <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2Remastered}/>
                 </div>
             </div>
