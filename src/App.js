@@ -3,6 +3,10 @@ import bridge from '@vkontakte/vk-bridge';
 import View from '@vkontakte/vkui/dist/components/View/View';
 import '@vkontakte/vkui/dist/vkui.css';
 
+import iLame from './img/iLameRu.png';
+import kurica from './img/kurica.png';
+import spider from './img/spider.png';
+import vanya from './img/vanya.png';
 import Home from './panels/Home';
 import TestPanel from './panels/TestPanel';
 
@@ -11,7 +15,10 @@ import TestPanel from './panels/TestPanel';
 
 global.tests = {
 	currentTest: '111',
-	winner: null,
+	winner1: vanya,
+	winner2: spider,
+	winner3: kurica,
+	winner4: iLame,
 }
 
 const App = () => {
