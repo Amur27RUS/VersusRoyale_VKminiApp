@@ -143,6 +143,7 @@ class ImageForTest extends React.Component {
             });
 
         }else{
+            global.tests.winner1 = imageArr[num1].image;
             this.setState({
                 image1: imageArr[num1].image,
                 css2:  'looser',
@@ -200,6 +201,7 @@ class ImageForTest extends React.Component {
             });
 
         }else{
+            global.tests.winner1 = imageArr[num2].image;
             this.setState({
                 image1: imageArr[num2].image,
                 css2:  'looser',
