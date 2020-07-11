@@ -22,11 +22,11 @@ let imageArr3 = [spotty, spotty]
 let imageArr4 = [persik, persik]
 
 const cards =[
-    { id: 1, className: 'TestUNLOCKED', title: 'Лучший пубгер'},
-    { id: 2, className: 'TestUNLOCKED', title: 'Игра века'},
-    { id: 3, className: 'TestUNLOCKED', title: 'Лучший футболист'},
-    { id: 4, className: 'TestUNLOCKED', title: 'Лучший фильм'},
-    { id: 5, className: 'TestUNLOCKED', title: 'Фигня ужасная'},
+    { id: 1, className: 'TestUNLOCKED', title: 'Самый лучший стример'},
+    { id: 2, className: 'TestUNLOCKED', title: 'Лучший мем 2020 года'},
+    { id: 3, className: 'TestUNLOCKED', title: 'Лучшая игра года'},
+    { id: 4, className: 'TestUNLOCKED', title: 'Футболист года'},
+    { id: 5, className: 'TestUNLOCKED', title: 'Лучший стикерпак ВК'},
 ]
 
 export default function TestCards({go}) {
@@ -34,15 +34,21 @@ export default function TestCards({go}) {
         <Group title="Navigation" className={"cardGrid"}>
             <CardGrid>
                 {cards.map(info =>{
-                    return <Card className={"cards"} size="l" mode="shadow" onClick={ (e) => {
+                    return <div className={'CARD'}><Card className={"cards"} size="l" mode="shadow" onClick={ (e) => {
                         go(e);
                         global.tests.currentTest = info.id;
                     }} data-to="TestPanel">
-                        <div style={{ height: 15 }} />
+                        <div className={'divYourVote'}>
                         <p className={"titleCards"}>{info.title}</p>
-                        <p className={"yourVote"}> {"Ваш"} <br/> {"выбор:"}
-                        <img src={global.tests.winner1} className={'imgOnCard'} width="50" height="50"/> </p>
+
+                        <p className={"yourVote"}>
+                            {"Ваш выбор:"}
+                            <br/>
+                        <img src={global.tests.winner1} className={'imgOnCard'} width="60" height="60"/>
+                        </p>
+                        </div>
                     </Card>
+                    </div>
                 })}
             </CardGrid>
         </Group>

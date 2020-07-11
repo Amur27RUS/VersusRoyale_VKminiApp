@@ -11,12 +11,11 @@ import iLame from './img/iLameRu.png';
 import kurica from './img/kurica.png';
 import spider from './img/spider.png';
 import vanya from './img/vanya.png';
-import {escapeLeadingUnderscores} from "typescript";
 let persikIMG = new TestImage(persik, 'Персик');
 let spottyIMG = new TestImage(spotty, 'Спотти');
 let lunaIMG = new TestImage(luna, 'Луна');
 let puppyIMG = new TestImage(puppy, 'Паппи');
-let doctorIMG = new TestImage(doctor, 'Доктор')
+let doctorIMG = new TestImage(doctor, 'Доктор');
 let catFishIMG = new TestImage(catFish, 'КотоРыба');
 let hardKotIMG = new TestImage(hardKot, 'ХардКот');
 let horseIMG = new TestImage(horse, 'Конь');
@@ -29,9 +28,9 @@ let vanyaIMG = new TestImage(vanya, 'Ваня');
 
 // Массивы с картинками (Число картинок должно быть равно степени двойки)
 let imageArr1 = [persikIMG, spottyIMG, lunaIMG, puppyIMG, doctorIMG, catFishIMG, hardKotIMG, horseIMG];
-let imageArr2 = [persikIMG, spottyIMG, iLameIMG, kuricaIMG]
-let imageArr3 = [spottyIMG, spiderIMG, iLameIMG, vanyaIMG]
-let imageArr4 = [persikIMG, persikIMG]
+let imageArr2 = [persikIMG, spottyIMG, iLameIMG, kuricaIMG];
+let imageArr3 = [spottyIMG, spiderIMG, iLameIMG, vanyaIMG];
+let imageArr4 = [persikIMG, persikIMG];
 
 //Массив со всеми массивами с картинками.
 let images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
@@ -224,7 +223,6 @@ class ImageForTest extends React.Component {
             <img id={'image1'} className={this.state.css1} src={this.state.image1} alt="Loading error" onClick={this.changeImg1Remastered}/>
                     <p className={this.state.textCss}>{this.state.text1}</p>
                 </div>
-                <br/>
                 <div>
                     <p className={this.state.textCss}>{this.state.text2}</p>
             <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2Remastered}/>

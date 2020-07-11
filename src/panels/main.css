@@ -6,25 +6,33 @@
     justify-content: center;
 }
 
+.divYourVote {
+    margin-top: 10px;
+}
+
+.CARD {
+    width: 340px;
+}
+
 .imgOnCard {
-    /*float: right;*/
-    /*margin-bottom: 10px;*/
-    /*margin-right: 10px;*/
     border: 2px solid #0c0d13;
+    border-radius: 20px;
 }
 
 .titleCards {
+    margin-top: 5px;
     width: 240px;
     margin-left: 15px;
     font-size: 30px;
     color: black;
-    margin-bottom: 45px;
+    margin-bottom: 10px;
     font-weight: bold;
     float: left;
     text-align: center;
 }
 
 .cards {
+    width: 100px;
     background: #e1e3e6;
     margin-bottom: 20px;
     border: 3px solid #0c0d13;
