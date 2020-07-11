@@ -11,22 +11,40 @@ import iLame from './img/iLameRu.png';
 import kurica from './img/kurica.png';
 import spider from './img/spider.png';
 import vanya from './img/vanya.png';
+import {escapeLeadingUnderscores} from "typescript";
+let persikIMG = new TestImage(persik, 'Персик');
+let spottyIMG = new TestImage(spotty, 'Спотти');
+let lunaIMG = new TestImage(luna, 'Луна');
+let puppyIMG = new TestImage(puppy, 'Паппи');
+let doctorIMG = new TestImage(doctor, 'Доктор')
+let catFishIMG = new TestImage(catFish, 'КотоРыба');
+let hardKotIMG = new TestImage(hardKot, 'ХардКот');
+let horseIMG = new TestImage(horse, 'Конь');
+let iLameIMG = new TestImage(iLame, 'Ламыч');
+let kuricaIMG = new TestImage(kurica, 'Курица');
+let spiderIMG = new TestImage(spider, 'Паук');
+let vanyaIMG = new TestImage(vanya, 'Ваня');
 
 
-// Массив с картинками
-let imageArr1 = [persik, spotty, luna, puppy, doctor, catFish, hardKot, horse, iLame, kurica, spider, vanya];
-let imageArr2 = [persik, spotty]
-let imageArr3 = [spotty, spotty]
-let imageArr4 = [persik, persik]
+
+// Массивы с картинками (Число картинок должно быть равно степени двойки)
+let imageArr1 = [persikIMG, spottyIMG, lunaIMG, puppyIMG, doctorIMG, catFishIMG, hardKotIMG, horseIMG];
+let imageArr2 = [persikIMG, spottyIMG, iLameIMG, kuricaIMG]
+let imageArr3 = [spottyIMG, spiderIMG, iLameIMG, vanyaIMG]
+let imageArr4 = [persikIMG, persikIMG]
+
+//Массив со всеми массивами с картинками.
 let images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
-let imageArr = [persik, persik];
 
-let usageArr = [imageArr.length];
-for(let i = 0; i < imageArr.length; i++){
-    usageArr[i] = 0;
-}
+//Рабочий массив
+let imageArr = [persikIMG, persikIMG];
+
+//Счётчик кол-ва итераций
 let counter = 1;
+//Кол-во удалённых элементов
 let undefinedElements;
+//мин кол-во использований
+let minUsage = 0;
 
 // рандомные номера картинок из массива
 let num1 = getRandomInt(0, imageArr.length-1);
@@ -44,12 +62,24 @@ function getRandomInt(min, max) {
     return Math.round(rand);
 }
 
+
 console.log('UPPER CLASS STARTED');
+
+//Класс для изображений
+function TestImage(image, text){
+        this.image = image; //Картинка
+        this.text = text; //Подпись к картинке
+        this.useNum = 0; //Сколько раз использовали
+}
 
 class ImageForTest extends React.Component {
 
     constructor(props) {
         imageArr = images[global.tests.currentTest - 1];
+        for(let i = 0; i < imageArr.length; i++){
+            imageArr[i].useNum = 0;
+        }
+        undefinedElements = 0;
         num1 = getRandomInt(0, imageArr.length-1);
         num2 = getRandomInt(0, imageArr.length-1);
         while(num1 === num2){
@@ -57,100 +87,126 @@ class ImageForTest extends React.Component {
         }
         super(props);
         console.log('CONSTRUCTOR STARTED');
-        console.log(num1);
-        console.log(num2);
+        console.log(imageArr);
     }
 
     state = {
-        image1: imageArr[num1],
-        image2: imageArr[num2],
-        css1: 'TestImage',
-        css2: 'TestImage',
-        text: null,
+        image1: imageArr[num1].image, //верхняя картинка
+        image2: imageArr[num2].image, //нижняя картинка
+        text1: imageArr[num1].text, //название верхней картинки
+        text2: imageArr[num2].text, //название нижней картинки
+        css1: 'TestImage', //класс верхней картинки
+        css2: 'TestImage', //Класс нижней картинки
+        textCss: 'textForImage', //класс названия картинок
+        text: null, //Текст победителя
     }
 
 
-    changeImg1 = () => {
-        console.log('changeIMG1');
+    changeImg1Remastered = () => {
         undefinedElements = 0;
-
-        if (undefinedElements < imageArr.length-1) {
-            delete imageArr[num2];
-        }
-
-        for(let i = 0; i<imageArr.length; i++){
+        delete imageArr[num2];
+        //Находим кол-во удалённых элементов
+        for(let i = 0; i < imageArr.length; i++){
             if(imageArr[i] === undefined){
                 undefinedElements++;
             }
         }
 
-        imageArr.sort();
-        console.log(images[global.tests.currentTest - 1])
-        console.log('ARRAY:')
-        for(let i = 0; i<imageArr.length; i++){
-            console.log(imageArr[i])
-        }
-        counter++;
         if(undefinedElements < imageArr.length-1){
+            counter++;
+            imageArr[num1].useNum++;
+            imageArr.sort();
+            console.log(imageArr);
+            minUsage = 100;
+            //Находим минимальное кол-во использований
+            for(let i = 0; i < imageArr.length-counter; i++){
+                if(imageArr[i].useNum < minUsage){
+                    minUsage = imageArr[i].useNum;
+                }
+            }
+            console.log('MinUSAGE = ' + minUsage);
+
             num1 = getRandomInt(0, imageArr.length-counter);
+            while(imageArr[num1].useNum !== minUsage){
+                num1 = getRandomInt(0, imageArr.length-counter);
+            }
             num2 = getRandomInt(0, imageArr.length-counter);
-            while (num1 === num2){
+            while((imageArr[num2].useNum !== minUsage) || (num1 === num2)){
                 num2 = getRandomInt(0, imageArr.length-counter);
             }
+
             this.setState({
-                image1: imageArr[num1],
-                image2: imageArr[num2],
-            })
+                image1: imageArr[num1].image,
+                image2: imageArr[num2].image,
+                text1: imageArr[num1].text,
+                text2: imageArr[num2].text,
+            });
+
         }else{
             this.setState({
-                image1: imageArr[0],
+                image1: imageArr[num1].image,
                 css2:  'looser',
                 css1: 'winner',
-                text: 'Победитель!'
-            })
+                text: 'Победитель!',
+                textCss: 'looser',
+            });
             counter = 1;
             images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         }
     }
 
-    changeImg2 = () => {
-        console.log('changeIMG2');
+    changeImg2Remastered = () => {
+
         undefinedElements = 0;
-
-        if (undefinedElements < imageArr.length-1) {
-            delete imageArr[num1];
-        }
-
-        for(let i = 0; i<imageArr.length; i++){
+        delete imageArr[num1];
+        //Находим кол-во удалённых элементов
+        for(let i = 0; i < imageArr.length; i++){
             if(imageArr[i] === undefined){
                 undefinedElements++;
             }
         }
 
-        imageArr.sort();
-        console.log(images[global.tests.currentTest - 1])
-        console.log('ARRAY:')
-        for(let i = 0; i<imageArr.length; i++){
-            console.log(imageArr[i])
-        }
-        counter++;
         if(undefinedElements < imageArr.length-1){
+            counter++;
+            imageArr[num2].useNum++;
+            imageArr.sort();
+            console.log(imageArr);
+            minUsage = 100;
+            //Находим минимальное кол-во использований
+            for(let i = 0; i < imageArr.length-counter; i++){
+                if(imageArr[i].useNum < minUsage){
+                    minUsage = imageArr[i].useNum;
+                }
+            }
+            console.log('MinUSAGE = ' + minUsage);
+
             num1 = getRandomInt(0, imageArr.length-counter);
+            while(imageArr[num1].useNum !== minUsage){
+                num1 = getRandomInt(0, imageArr.length-counter);
+            }
+
             num2 = getRandomInt(0, imageArr.length-counter);
-            while (num1 === num2){
+            while((imageArr[num2].useNum !== minUsage) || (num1 === num2)){
                 num2 = getRandomInt(0, imageArr.length-counter);
             }
+            console.log('NUMS для следующего:');
+            console.log(num1 + ' ' + num2);
+
             this.setState({
-                image1: imageArr[num1],
-                image2: imageArr[num2],
-            })
+                image1: imageArr[num1].image,
+                image2: imageArr[num2].image,
+                text1: imageArr[num1].text,
+                text2: imageArr[num2].text,
+            });
+
         }else{
             this.setState({
-                image2: imageArr[0],
-                css1:  'looser',
-                css2: 'winner',
+                image1: imageArr[num2].image,
+                css2:  'looser',
+                css1: 'winner',
                 text: 'Победитель!',
-            })
+                textCss: 'looser',
+            });
             counter = 1;
             images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         }
@@ -160,20 +216,19 @@ class ImageForTest extends React.Component {
         return(
             <div>
                 <div className={"sign"}>
-                    <span className="sign__word">{this.state.text}</span>
+                    <span className='sign__word'>{this.state.text}</span>
                 </div>
                 <div>
-            <img id={'image1'} className={this.state.css1} src={this.state.image1} alt="Loading error" onClick={this.changeImg1}/>
+            <img id={'image1'} className={this.state.css1} src={this.state.image1} alt="Loading error" onClick={this.changeImg1Remastered}/>
+                    <p className={this.state.textCss}>{this.state.text1}</p>
                 </div>
                 <br/>
                 <div>
-            <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2}/>
+                    <p className={this.state.textCss}>{this.state.text2}</p>
+            <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2Remastered}/>
                 </div>
             </div>
         )
     }
-
-
 }
 export default ImageForTest;
-
