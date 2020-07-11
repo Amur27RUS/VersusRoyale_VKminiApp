@@ -19,7 +19,7 @@ const TestPanel = props => (
                 {osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
             </PanelHeaderButton>}
         >
-            Тест
+            {global.tests.currentTestName}
         </PanelHeader>
 
         <ImageForTest curTest ={global.tests.currentTest}/>

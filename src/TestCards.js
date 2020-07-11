@@ -37,6 +37,7 @@ export default function TestCards({go}) {
                     return <div className={'CARD'}><Card className={"cards"} size="l" mode="shadow" onClick={ (e) => {
                         go(e);
                         global.tests.currentTest = info.id;
+                        global.tests.currentTestName = info.title;
                     }} data-to="TestPanel">
                         <div className={'divYourVote'}>
                         <p className={"titleCards"}>{info.title}</p>

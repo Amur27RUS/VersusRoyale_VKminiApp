@@ -15,6 +15,7 @@ import TestPanel from './panels/TestPanel';
 
 global.tests = {
 	currentTest: '111',
+	currentTestName: 'testName',
 	winner1: vanya,
 	winner2: spider,
 	winner3: kurica,
