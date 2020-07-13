@@ -80,6 +80,7 @@ import horizon from './img/image32.png';
 
 
 import Group from "@vkontakte/vkui/dist/components/Group/Group";
+import Title from "@vkontakte/vkui/dist/components/Typography/Title/Title";
 
 let persikIMG = new TestImage(persik, 'Персик');
 let spottyIMG = new TestImage(spotty, 'Спотти');
@@ -178,6 +179,8 @@ let images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4
 //Рабочий массив
 let imageArr = [persikIMG, persikIMG];
 
+let roundNum = 1;
+
 //Счётчик кол-ва итераций
 let counter = 1;
 //Кол-во удалённых элементов
@@ -213,6 +216,7 @@ function TestImage(image, text){
 class ImageForTest extends React.Component {
 
     constructor(props) {
+        roundNum = 1;
         images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         imageArr = images[global.tests.currentTest - 1];
         for(let i = 0; i < imageArr.length; i++){
@@ -234,12 +238,31 @@ class ImageForTest extends React.Component {
         image2: imageArr[num2].image, //нижняя картинка
         text1: imageArr[num1].text, //название верхней картинки
         text2: imageArr[num2].text, //название нижней картинки
-        css1: 'TestImage', //класс верхней картинки
-        css2: 'TestImage', //Класс нижней картинки
-        textCss1: 'textForImage1',
-        textCss2: 'textForImage2',//класс названия картинок
+        css1: 'looser', //класс верхней картинки
+        css2: 'looser', //Класс нижней картинки
+        textCss1: 'looser', //Класс названия картинок
+        textCss2: 'looser',//класс названия картинок
         text: null, //Текст победителя
-        vsIconCSS: 'VSicon', //CSS картинки VS
+        vsIconCSS: 'looser', //CSS картинки VS
+        roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+        roundTitleCSS: 'roundTitle', //CSS к названию раунда
+    }
+    roundAnimationFunc = () => {
+        this.setState({
+            image1: imageArr[num1].image, //верхняя картинка
+            image2: imageArr[num2].image, //нижняя картинка
+            text1: imageArr[num1].text, //название верхней картинки
+            text2: imageArr[num2].text, //название нижней картинки
+            css1: 'TestImage', //класс верхней картинки
+            css2: 'TestImage', //Класс нижней картинки
+            textCss1: 'textForImage1',
+            textCss2: 'textForImage2',//класс названия картинок
+            text: null, //Текст победителя
+            vsIconCSS: 'VSicon', //CSS картинки VS
+            roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+            roundTitleCSS: 'looser',
+
+        })
     }
 
     changeImg1Remastered = () => {
@@ -254,6 +277,56 @@ class ImageForTest extends React.Component {
 
         if(undefinedElements < imageArr.length-1){
             counter++;
+            if(imageArr.length - undefinedElements === imageArr.length / 2){
+                roundNum++;
+                this.setState({
+                    css1: 'looser', //класс верхней картинки
+                    css2: 'looser', //Класс нижней картинки
+                    textCss1: 'looser', //Класс названия картинок
+                    textCss2: 'looser',//класс названия картинок
+                    text: null, //Текст победителя
+                    vsIconCSS: 'looser', //CSS картинки VS
+                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitleCSS: 'roundTitle', //CSS к названию раунда
+                });
+
+            }else if(imageArr.length - undefinedElements === imageArr.length / 4){
+                roundNum++;
+                this.setState({
+                    css1: 'looser', //класс верхней картинки
+                    css2: 'looser', //Класс нижней картинки
+                    textCss1: 'looser', //Класс названия картинок
+                    textCss2: 'looser',//класс названия картинок
+                    text: null, //Текст победителя
+                    vsIconCSS: 'looser', //CSS картинки VS
+                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitleCSS: 'roundTitle', //CSS к названию раунда
+                });
+            }else if(imageArr.length - undefinedElements > 0 && imageArr.length - undefinedElements === imageArr.length / 8){
+                roundNum++;
+                this.setState({
+                    css1: 'looser', //класс верхней картинки
+                    css2: 'looser', //Класс нижней картинки
+                    textCss1: 'looser', //Класс названия картинок
+                    textCss2: 'looser',//класс названия картинок
+                    text: null, //Текст победителя
+                    vsIconCSS: 'looser', //CSS картинки VS
+                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitleCSS: 'roundTitle', //CSS к названию раунда
+                });
+            }else if(imageArr.length - undefinedElements > 0 && imageArr.length - undefinedElements === imageArr.length / 16){
+                roundNum++;
+                this.setState({
+                    css1: 'looser', //класс верхней картинки
+                    css2: 'looser', //Класс нижней картинки
+                    textCss1: 'looser', //Класс названия картинок
+                    textCss2: 'looser',//класс названия картинок
+                    text: null, //Текст победителя
+                    vsIconCSS: 'looser', //CSS картинки VS
+                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitleCSS: 'roundTitle', //CSS к названию раунда
+                });
+            }
             imageArr[num1].useNum++;
             imageArr.sort();
             console.log(imageArr);
@@ -288,7 +361,7 @@ class ImageForTest extends React.Component {
                 image1: imageArr[num1].image,
                 css2:  'looser',
                 css1: 'winner',
-                text: 'Победитель!',
+                text: global.tests.currentTestName,
                 textCss1: 'looser',
                 textCss2: 'looser',
                 vsIconCSS: 'looser',
@@ -311,6 +384,56 @@ class ImageForTest extends React.Component {
 
         if(undefinedElements < imageArr.length-1){
             counter++;
+            if(imageArr.length - undefinedElements === imageArr.length / 2){
+                roundNum++;
+                this.setState({
+                    css1: 'looser', //класс верхней картинки
+                    css2: 'looser', //Класс нижней картинки
+                    textCss1: 'looser', //Класс названия картинок
+                    textCss2: 'looser',//класс названия картинок
+                    text: null, //Текст победителя
+                    vsIconCSS: 'looser', //CSS картинки VS
+                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitleCSS: 'roundTitle', //CSS к названию раунда
+                });
+
+            }else if(imageArr.length - undefinedElements === imageArr.length / 4){
+                roundNum++;
+                this.setState({
+                    css1: 'looser', //класс верхней картинки
+                    css2: 'looser', //Класс нижней картинки
+                    textCss1: 'looser', //Класс названия картинок
+                    textCss2: 'looser',//класс названия картинок
+                    text: null, //Текст победителя
+                    vsIconCSS: 'looser', //CSS картинки VS
+                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitleCSS: 'roundTitle', //CSS к названию раунда
+                });
+            }else if(imageArr.length - undefinedElements > 0 && imageArr.length - undefinedElements === imageArr.length / 8){
+                roundNum++;
+                this.setState({
+                    css1: 'looser', //класс верхней картинки
+                    css2: 'looser', //Класс нижней картинки
+                    textCss1: 'looser', //Класс названия картинок
+                    textCss2: 'looser',//класс названия картинок
+                    text: null, //Текст победителя
+                    vsIconCSS: 'looser', //CSS картинки VS
+                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitleCSS: 'roundTitle', //CSS к названию раунда
+                });
+            }else if(imageArr.length - undefinedElements > 0 && imageArr.length - undefinedElements === imageArr.length / 16){
+                roundNum++;
+                this.setState({
+                    css1: 'looser', //класс верхней картинки
+                    css2: 'looser', //Класс нижней картинки
+                    textCss1: 'looser', //Класс названия картинок
+                    textCss2: 'looser',//класс названия картинок
+                    text: null, //Текст победителя
+                    vsIconCSS: 'looser', //CSS картинки VS
+                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitleCSS: 'roundTitle', //CSS к названию раунда
+                });
+            }
             imageArr[num2].useNum++;
             imageArr.sort();
             console.log(imageArr);
@@ -348,7 +471,7 @@ class ImageForTest extends React.Component {
                 image1: imageArr[num2].image,
                 css2:  'looser',
                 css1: 'winner',
-                text: 'Победитель!',
+                text: global.tests.currentTestName,
                 textCss1: 'looser',
                 textCss2: 'looser',
                 vsIconCSS: 'looser',
@@ -360,16 +483,18 @@ class ImageForTest extends React.Component {
 
     render() {
         return(
-            <Group title="test">
+            <Group title="test" className={'cardGrid'}>
             <div className={'picDIV'}>
                 <div className={"sign"}>
                     <span className='sign__word'>{this.state.text}</span>
                 </div>
 
             <img id={'image1'} className={this.state.css1} src={this.state.image1} alt="Loading error" onClick={this.changeImg1Remastered}/>
-                    <p className={this.state.textCss1}>{this.state.text1}</p>
+                <Title level="1" weight="bold" className={this.state.textCss1}>{this.state.text1}</Title>
+
+                <p className={this.state.roundTitleCSS} onAnimationEnd={this.roundAnimationFunc}>{this.state.roundTitle}</p>
                     {/*<img className={this.state.vsIconCSS} alt="loading error" src={vsIcon} />*/}
-                    <p className={this.state.textCss2}>{this.state.text2}</p>
+                <Title level="1" weight="bold" className={this.state.textCss2}>{this.state.text2}</Title>
             <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2Remastered}/>
 
             </div>
