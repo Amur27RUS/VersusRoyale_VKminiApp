@@ -110,6 +110,7 @@ function TestImage(image, text){
 class ImageForTest extends React.Component {
 
     constructor(props) {
+        images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         imageArr = images[global.tests.currentTest - 1];
         for(let i = 0; i < imageArr.length; i++){
             imageArr[i].useNum = 0;
