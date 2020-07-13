@@ -14,7 +14,12 @@ import TestPanel from './panels/TestPanel';
 //npm run deploy - запуск на хостинг
 
 global.tests = {
-	currentTest: '111'
+	currentTest: '111',
+	currentTestName: 'testName',
+	winner1: vanya,
+	winner2: spider,
+	winner3: kurica,
+	winner4: iLame,
 }
 
 const App = () => {

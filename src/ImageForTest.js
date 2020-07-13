@@ -11,13 +11,30 @@ import iLame from './img/iLameRu.png';
 import kurica from './img/kurica.png';
 import spider from './img/spider.png';
 import vanya from './img/vanya.png';
-import {escapeLeadingUnderscores} from "typescript";
-import bridge from "@vkontakte/vk-bridge";
+// import vsIcon from './img/VSicon.png';
+import bratishkin from './img/BratishkinOff.png';
+import cheatBanned from './img/CheatBanned.png';
+import evelone from './img/Evelone.png';
+import gnumme from './img/Gnumme.png';
+import iLameRU from './img/iLameRu копия.png';
+import itpedia from './img/ITPEDIA.png';
+import jesusavgn from './img/JesusAVGN.png';
+import karmikKoala from './img/KarmikKoala.png';
+import kuplinovPlay from './img/kuplinovPLAY.png';
+import maddyson from './img/Maddyson.png';
+import navalny from './img/Navalny.png';
+import olsior from './img/Olsior.png';
+import papich from './img/papich.png';
+import paver from './img/Russia Paver.png';
+import snailkick from './img/SnailKick.png';
+import vjLink from './img/VJLINK.png';
+import Group from "@vkontakte/vkui/dist/components/Group/Group";
+
 let persikIMG = new TestImage(persik, 'Персик');
 let spottyIMG = new TestImage(spotty, 'Спотти');
 let lunaIMG = new TestImage(luna, 'Луна');
 let puppyIMG = new TestImage(puppy, 'Паппи');
-let doctorIMG = new TestImage(doctor, 'Доктор')
+let doctorIMG = new TestImage(doctor, 'Доктор');
 let catFishIMG = new TestImage(catFish, 'КотоРыба');
 let hardKotIMG = new TestImage(hardKot, 'ХардКот');
 let horseIMG = new TestImage(horse, 'Конь');
@@ -26,13 +43,31 @@ let kuricaIMG = new TestImage(kurica, 'Курица');
 let spiderIMG = new TestImage(spider, 'Паук');
 let vanyaIMG = new TestImage(vanya, 'Ваня');
 
+let Bratishkin = new TestImage(bratishkin, 'BratishkinOff');
+let CheatBanned = new TestImage(cheatBanned, 'CheatBanned');
+let Evelone = new TestImage(evelone, 'Evelone');
+let Gnumme = new TestImage(gnumme, 'Gnumme');
+let ILameRU = new TestImage(iLameRU, 'iLameRU');
+let Itpedia = new TestImage(itpedia, 'Itpedia');
+let JesusAVGN = new TestImage(jesusavgn, 'JesusAVGN');
+let Karmik = new TestImage(karmikKoala, 'Karmik Koala');
+let Kuplinov = new TestImage(kuplinovPlay, 'Kuplinov');
+let Maddyson = new TestImage(maddyson, 'Maddyson');
+let Navalny = new TestImage(navalny, 'Навальный');
+let Olsior = new TestImage(olsior, 'Olsior');
+let Papich = new TestImage(papich, 'Папич');
+let Paver = new TestImage(paver, 'Russia Paver');
+let Snailkick = new TestImage(snailkick, 'SnailKick');
+let VjLink = new TestImage(vjLink, 'VJLink');
+
 
 
 // Массивы с картинками (Число картинок должно быть равно степени двойки)
-let imageArr1 = [persikIMG, spottyIMG, lunaIMG, puppyIMG, doctorIMG, catFishIMG, hardKotIMG, horseIMG];
-let imageArr2 = [persikIMG, spottyIMG, iLameIMG, kuricaIMG]
-let imageArr3 = [spottyIMG, spiderIMG, iLameIMG, vanyaIMG]
-let imageArr4 = [persikIMG, persikIMG]
+let imageArr1 = [Bratishkin, CheatBanned, Evelone, Gnumme, ILameRU, Itpedia, JesusAVGN, Karmik, Kuplinov,
+    Maddyson, Navalny, Olsior, Papich, Paver, Snailkick, VjLink];
+let imageArr2 = [persikIMG, spottyIMG, lunaIMG, puppyIMG, doctorIMG, catFishIMG, hardKotIMG, horseIMG];
+let imageArr3 = [spottyIMG, spiderIMG, iLameIMG, vanyaIMG];
+let imageArr4 = [persikIMG, persikIMG];
 
 //Массив со всеми массивами с картинками.
 let images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
@@ -62,7 +97,6 @@ function getRandomInt(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
 }
-
 
 console.log('UPPER CLASS STARTED');
 
@@ -98,8 +132,10 @@ class ImageForTest extends React.Component {
         text2: imageArr[num2].text, //название нижней картинки
         css1: 'TestImage', //класс верхней картинки
         css2: 'TestImage', //Класс нижней картинки
-        textCss: 'textForImage', //класс названия картинок
+        textCss1: 'textForImage1',
+        textCss2: 'textForImage2',//класс названия картинок
         text: null, //Текст победителя
+        vsIconCSS: 'VSicon', //CSS картинки VS
     }
 
     changeImg1Remastered = () => {
@@ -143,44 +179,16 @@ class ImageForTest extends React.Component {
             });
 
         }else{
-            // global.tests.winner1 = imageArr[num1].image;
+            global.tests.winner1 = imageArr[num1].image;
             this.setState({
                 image1: imageArr[num1].image,
                 css2:  'looser',
                 css1: 'winner',
                 text: 'Победитель!',
-                textCss: 'looser',
+                textCss1: 'looser',
+                textCss2: 'looser',
+                vsIconCSS: 'looser',
             });
-            // if (global.tests.currentTest === '1') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner1",
-            //         value: imageArr[num1].text
-            //     })
-            // }
-            // if (global.tests.currentTest === '2') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner2",
-            //         value: imageArr[num1].text
-            //     })
-            // }
-            // if (global.tests.currentTest === '3') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner3",
-            //         value: imageArr[num1].text
-            //     })
-            // }
-            // if (global.tests.currentTest === '4') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner4",
-            //         value: imageArr[num1].text
-            //     })
-            // }
-            // if (global.tests.currentTest === '5') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner5",
-            //         value: imageArr[num1].text
-            //     })
-            // }
             counter = 1;
             images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         }
@@ -231,53 +239,16 @@ class ImageForTest extends React.Component {
             });
 
         }else{
-            // global.tests.winner1 = imageArr[num2].image;
+            global.tests.winner1 = imageArr[num2].image;
             this.setState({
                 image1: imageArr[num2].image,
                 css2:  'looser',
                 css1: 'winner',
                 text: 'Победитель!',
-                textCss: 'looser',
+                textCss1: 'looser',
+                textCss2: 'looser',
+                vsIconCSS: 'looser',
             });
-            // if (global.tests.currentTest === '1') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner1",
-            //         value: imageArr[num2].text
-            //     })
-            // }
-            // if (global.tests.currentTest === '2') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner2",
-            //         value: imageArr[num2].text
-            //     })
-            // }
-            // if (global.tests.currentTest === '3') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner3",
-            //         value: imageArr[num2].text
-            //     })
-            // }
-            // if (global.tests.currentTest === '4') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner4",
-            //         value: imageArr[num2].text
-            //     })
-            // }
-            // if (global.tests.currentTest === '5') {
-            //     bridge.send("VKWebAppStorageSet", {
-            //         key: "winner5",
-            //         value: imageArr[num2].text
-            //     })
-            // }
-            // console.log(bridge.send("VKWebAppStorageGetKeys", {
-            //     "response": ["key"]
-            // }));
-            // console.log(bridge.send("VKWebAppStorageGet", {
-            //     "response": [{
-            //         "key": "winner1",
-            //         "value": ""
-            //     }]
-            // }));
             counter = 1;
             images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         }
@@ -285,20 +256,20 @@ class ImageForTest extends React.Component {
 
     render() {
         return(
-            <div>
+            <Group title="test">
+            <div className={'picDIV'}>
                 <div className={"sign"}>
                     <span className='sign__word'>{this.state.text}</span>
                 </div>
-                <div>
+
             <img id={'image1'} className={this.state.css1} src={this.state.image1} alt="Loading error" onClick={this.changeImg1Remastered}/>
-                    <p className={this.state.textCss}>{this.state.text1}</p>
-                </div>
-                <br/>
-                <div>
-                    <p className={this.state.textCss}>{this.state.text2}</p>
+                    <p className={this.state.textCss1}>{this.state.text1}</p>
+                    {/*<img className={this.state.vsIconCSS} alt="loading error" src={vsIcon} />*/}
+                    <p className={this.state.textCss2}>{this.state.text2}</p>
             <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2Remastered}/>
-                </div>
+
             </div>
+            </Group>
         )
     }
 }
