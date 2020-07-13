@@ -29,6 +29,12 @@ const cards =[
     { id: 5, className: 'TestUNLOCKED', title: 'Фигня ужасная'},
 ]
 
+// bridge.send("VKWebAppStorageSet", {
+//     key: winner1,
+//     value:
+// })
+
+
 export default function TestCards({go}) {
     return(
         <Group title="Navigation" className={"cardGrid"}>

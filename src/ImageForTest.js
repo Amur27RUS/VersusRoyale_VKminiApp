@@ -12,6 +12,7 @@ import kurica from './img/kurica.png';
 import spider from './img/spider.png';
 import vanya from './img/vanya.png';
 import {escapeLeadingUnderscores} from "typescript";
+import bridge from "@vkontakte/vk-bridge";
 let persikIMG = new TestImage(persik, 'Персик');
 let spottyIMG = new TestImage(spotty, 'Спотти');
 let lunaIMG = new TestImage(luna, 'Луна');
@@ -101,7 +102,6 @@ class ImageForTest extends React.Component {
         text: null, //Текст победителя
     }
 
-
     changeImg1Remastered = () => {
         undefinedElements = 0;
         delete imageArr[num2];
@@ -143,7 +143,7 @@ class ImageForTest extends React.Component {
             });
 
         }else{
-            global.tests.winner1 = imageArr[num1].image;
+            // global.tests.winner1 = imageArr[num1].image;
             this.setState({
                 image1: imageArr[num1].image,
                 css2:  'looser',
@@ -151,6 +151,36 @@ class ImageForTest extends React.Component {
                 text: 'Победитель!',
                 textCss: 'looser',
             });
+            // if (global.tests.currentTest === '1') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner1",
+            //         value: imageArr[num1].text
+            //     })
+            // }
+            // if (global.tests.currentTest === '2') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner2",
+            //         value: imageArr[num1].text
+            //     })
+            // }
+            // if (global.tests.currentTest === '3') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner3",
+            //         value: imageArr[num1].text
+            //     })
+            // }
+            // if (global.tests.currentTest === '4') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner4",
+            //         value: imageArr[num1].text
+            //     })
+            // }
+            // if (global.tests.currentTest === '5') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner5",
+            //         value: imageArr[num1].text
+            //     })
+            // }
             counter = 1;
             images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         }
@@ -201,7 +231,7 @@ class ImageForTest extends React.Component {
             });
 
         }else{
-            global.tests.winner1 = imageArr[num2].image;
+            // global.tests.winner1 = imageArr[num2].image;
             this.setState({
                 image1: imageArr[num2].image,
                 css2:  'looser',
@@ -209,6 +239,45 @@ class ImageForTest extends React.Component {
                 text: 'Победитель!',
                 textCss: 'looser',
             });
+            // if (global.tests.currentTest === '1') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner1",
+            //         value: imageArr[num2].text
+            //     })
+            // }
+            // if (global.tests.currentTest === '2') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner2",
+            //         value: imageArr[num2].text
+            //     })
+            // }
+            // if (global.tests.currentTest === '3') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner3",
+            //         value: imageArr[num2].text
+            //     })
+            // }
+            // if (global.tests.currentTest === '4') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner4",
+            //         value: imageArr[num2].text
+            //     })
+            // }
+            // if (global.tests.currentTest === '5') {
+            //     bridge.send("VKWebAppStorageSet", {
+            //         key: "winner5",
+            //         value: imageArr[num2].text
+            //     })
+            // }
+            // console.log(bridge.send("VKWebAppStorageGetKeys", {
+            //     "response": ["key"]
+            // }));
+            // console.log(bridge.send("VKWebAppStorageGet", {
+            //     "response": [{
+            //         "key": "winner1",
+            //         "value": ""
+            //     }]
+            // }));
             counter = 1;
             images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         }
