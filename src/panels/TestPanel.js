@@ -7,12 +7,14 @@ import PanelHeaderButton from '@vkontakte/vkui/dist/components/PanelHeaderButton
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 
+
 import './main.css';
 import ImageForTest from "../ImageForTest";
 
 const osName = platform();
 
 const TestPanel = props => (
+
     <Panel id={props.id}>
         <PanelHeader
             left={<PanelHeaderButton onClick={props.go} data-to="home">

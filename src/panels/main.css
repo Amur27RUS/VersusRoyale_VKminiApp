@@ -10,6 +10,13 @@
     margin-top: 10px;
 }
 
+.VSicon {
+    width: 115px;
+    position: absolute;
+    margin-left: -50px;
+    margin-top: -40px;
+}
+
 .CARD {
     width: 340px;
 }
@@ -49,14 +56,14 @@
     justify-content: space-evenly;
     align-items: center;
     min-height: 93vh;
-    background: radial-gradient(ellipse at bottom, #24344c 0%, #0c0d13 100%);
+    background: radial-gradient(ellipse at bottom, #39557d 0%, #0c0d13 100%);
     overflow: hidden;
 }
 
 .TestImage {
     display: block;
     clear: both;
-    height: 300px;
+    height: 240px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -86,9 +93,32 @@
     border-radius: 10px;
     pointer-events: none;
 }
-.textForImage{
-    text-align: center;
+.textForImage1{
+    text-align: left;
+    font-family: "PingFang SC", serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0;
 }
+
+.textForImage2{
+    text-align: right;
+    font-family: "PingFang SC", serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0;
+}
+
+.picDIV {
+    width: 400px;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
+/*RETRO STYLE!*/
+
+
 
 
 /*ЭФФЕКТЫ ДЛЯ ПОБЕДИТЕЛЯ*/
