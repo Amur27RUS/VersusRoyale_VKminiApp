@@ -3,7 +3,7 @@ import Group from "@vkontakte/vkui/dist/components/Group/Group";
 import React from "react";
 
 const cards =[
-    { id: 1, className: 'TestUNLOCKED', title: 'Лучший стример мужчина'},
+    { id: 1, className: 'TestUNLOCKED', title: 'Лучший стример'},
     { id: 2, className: 'TestUNLOCKED', title: 'Лучший стикерпак ВК'},
     { id: 3, className: 'TestUNLOCKED', title: 'Лучшая игра года'},
     { id: 4, className: 'TestUNLOCKED', title: 'Футболист года'},
