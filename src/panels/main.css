@@ -210,14 +210,13 @@
 
 /* JUMP */
 h1 {
-    cursor: default;
     position: absolute;
     top: -200px;
-    left: 0;
+    left: -130px;
     right: 0;
     bottom: 0;
-    width: 100px;
-    height: 10px;
+    width: 0px;
+    height: 725px;
     margin: auto;
     display: block;
     text-align: center;

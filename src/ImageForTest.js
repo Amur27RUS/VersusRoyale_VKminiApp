@@ -216,6 +216,7 @@ function TestImage(image, text){
 class ImageForTest extends React.Component {
 
     constructor(props) {
+        counter = 1;
         roundNum = 1;
         images = [imageArr1.slice(), imageArr2.slice(), imageArr3.slice(), imageArr4.slice()];
         imageArr = images[global.tests.currentTest - 1];
@@ -266,6 +267,7 @@ class ImageForTest extends React.Component {
     }
 
     changeImg1Remastered = () => {
+        console.log('Вы кликнули на вехнюю картинку!');
         undefinedElements = 0;
         delete imageArr[num2];
         //Находим кол-во удалённых элементов
@@ -323,7 +325,7 @@ class ImageForTest extends React.Component {
                     textCss2: 'looser',//класс названия картинок
                     text: null, //Текст победителя
                     vsIconCSS: 'looser', //CSS картинки VS
-                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitle: 'Финальный раунд!', //Название раунда
                     roundTitleCSS: 'roundTitle', //CSS к названию раунда
                 });
             }
@@ -372,6 +374,7 @@ class ImageForTest extends React.Component {
     }
 
     changeImg2Remastered = () => {
+        console.log('Вы кликнули на нижнюю картинку!');
 
         undefinedElements = 0;
         delete imageArr[num1];
