@@ -8,6 +8,11 @@
     justify-content: center;
 }
 
+.imageDIV {
+    position	: relative;
+    width		: 100%; /* for IE 6 */
+}
+
 .divYourVote {
     margin-top: 10px;
 }
@@ -158,7 +163,7 @@
     clear: both;
     height: 300px;
     margin-top: 50px;
-    margin-left: auto;
+    margin-left: -33px;
     margin-right: auto;
     text-align: center;
     border: 3px solid #e3e3e3;
@@ -166,23 +171,39 @@
     pointer-events: none;
 }
 .textForImage1{
-    text-align: left;
-    font-family: "PingFang SC", serif;
-    font-weight: bold;
-    font-size: 30px;
-    margin: 0;
+    border-radius: 3px;
+    margin-top      : -48px;
+    margin-left     : 3px;
+    color			: white;
+    font			: bold 24px/45px Helvetica, Sans-Serif;
+    letter-spacing	: -1px;
+    background		: rgb(0, 0, 0); /* на случай, если следующая строка не сработает */
+    background		: rgba(0, 0, 0, 0.5);
+    width           : 240px;
+    padding			: 0px;
+    -webkit-animation: pulsing 1s;
+    animation: pulsing 1s;
+    animation-iteration-count: 1;
 }
 
 .textForImage2{
-    text-align: right;
-    font-family: "PingFang SC", serif;
-    font-weight: bold;
-    font-size: 30px;
-    margin: 0;
+    border-radius: 3px;
+    margin-top      : -48px;
+    margin-left     : 3px;
+    color			: white;
+    font			: bold 24px/45px Helvetica, Sans-Serif;
+    letter-spacing	: -1px;
+    background		: rgb(0, 0, 0); /* на случай, если следующая строка не сработает */
+    background		: rgba(0, 0, 0, 0.5);
+    width           : 240px;
+    padding			: 0px;
+    -webkit-animation: pulsing 1s;
+    animation: pulsing 1s;
+    animation-iteration-count: 1;
 }
 
 .picDIV {
-    width: 400px;
+    width: 240px;
     text-align: center;
     justify-content: center;
     margin: auto;

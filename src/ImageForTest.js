@@ -129,7 +129,7 @@ let ZLOYn = new TestImage(zLOYn, 'ZLOYn');
 let Hvost = new TestImage(hvost, 'ХВОСТ');
 // игры
 let Witcher = new TestImage(witcher, 'Witcher');
-let RedDeadRedemption2 = new TestImage(rdr2, 'Red Dead Redemption 2');
+let RedDeadRedemption2 = new TestImage(rdr2, 'RDR 2');
 let Skyrim = new TestImage(skyrim, 'Skyrim');
 let GodOfWar = new TestImage(godOfWar, 'God of War');
 let TheLastOfUs = new TestImage(theLastOfUs, 'The last of us');
@@ -147,7 +147,7 @@ let Destiny2 = new TestImage(destiny2, 'Destiny 2');
 let Civilization5 = new TestImage(civilization5, 'Civilization 5');
 let LifeIsStrange = new TestImage(lifeIsStrange, 'Life is strange');
 let Outlast2 = new TestImage(outlast2, 'Outlast 2');
-let Detroit = new TestImage(detroit, 'Detroit become human');
+let Detroit = new TestImage(detroit, 'Detroit');
 let Doom = new TestImage(doom, 'Doom');
 let AssassinsCreed = new TestImage(assassinsCreed, 'Assassins Creed');
 let FinalFantasy15 = new TestImage(finalFantasy15, 'Final Fantasy XV');
@@ -262,7 +262,6 @@ class ImageForTest extends React.Component {
             vsIconCSS: 'VSicon', //CSS картинки VS
             roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
             roundTitleCSS: 'looser',
-
         })
     }
 
@@ -493,12 +492,17 @@ class ImageForTest extends React.Component {
                 </div>
                 <h1><span className={this.state.roundTitleCSS} onAnimationEnd={this.roundAnimationFunc}>{this.state.roundTitle}</span></h1>
 
-            <img id={'image1'} className={this.state.css1} src={this.state.image1} alt="Loading error" onClick={this.changeImg1Remastered}/>
-                <Title level="1" weight="bold" className={this.state.textCss1}>{this.state.text1}</Title>
-
+                <div className={'imageDIV'}>
+                    <img id={'image1'} className={this.state.css1} src={this.state.image1} alt="Loading error" onClick={this.changeImg1Remastered}/>
+                </div>
                     {/*<img className={this.state.vsIconCSS} alt="loading error" src={vsIcon} />*/}
-                <Title level="1" weight="bold" className={this.state.textCss2}>{this.state.text2}</Title>
-            <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2Remastered}/>
+                <div className={'imageDIV'}>
+                    <p className={this.state.textCss1}>{this.state.text1}</p>
+                    <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2Remastered}/>
+                </div>
+                <div className={'imageDIV'}>
+                    <p className={this.state.textCss2}>{this.state.text2}</p>
+                </div>
 
             </div>
             </Group>
