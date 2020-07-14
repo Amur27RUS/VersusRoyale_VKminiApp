@@ -430,7 +430,7 @@ class ImageForTest extends React.Component {
                     textCss2: 'looser',//класс названия картинок
                     text: null, //Текст победителя
                     vsIconCSS: 'looser', //CSS картинки VS
-                    roundTitle: 'Раунд ' + roundNum.toString(), //Название раунда
+                    roundTitle: 'Финальный раунд!', //Название раунда
                     roundTitleCSS: 'roundTitle', //CSS к названию раунда
                 });
             }
