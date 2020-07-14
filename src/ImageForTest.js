@@ -385,11 +385,11 @@ class ImageForTest extends React.Component {
                 <div className={"sign"}>
                     <span className='sign__word'>{this.state.text}</span>
                 </div>
+                <h1><span className={this.state.roundTitleCSS} onAnimationEnd={this.roundAnimationFunc}>{this.state.roundTitle}</span></h1>
 
             <img id={'image1'} className={this.state.css1} src={this.state.image1} alt="Loading error" onClick={this.changeImg1Remastered}/>
                 <Title level="1" weight="bold" className={this.state.textCss1}>{this.state.text1}</Title>
 
-                <p className={this.state.roundTitleCSS} onAnimationEnd={this.roundAnimationFunc}>{this.state.roundTitle}</p>
                     {/*<img className={this.state.vsIconCSS} alt="loading error" src={vsIcon} />*/}
                 <Title level="1" weight="bold" className={this.state.textCss2}>{this.state.text2}</Title>
             <img id={'image2'} className={this.state.css2} src={this.state.image2} alt="Loading error" onClick={this.changeImg2Remastered}/>
